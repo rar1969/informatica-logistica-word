@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informática Logística - Unidad 4: Word II y TP 7 | UTN FRT</title>
+  <meta name="description" content="Guía teórica interactiva y completa de Word II: Tablas, Imágenes, Estilos, Correspondencia y Trabajo Práctico N.º 7 para la Tecnicatura Superior en Logística - UTN FRT.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-hover: #172554;
+      --primary-light: #dbeafe;
+      --primary-dark: #1e293b;
+      --accent: #2563eb;
+      --accent-subtle: #eff6ff;
+      --success: #15803d;
+      --success-light: #dcfce7;
+      --warning: #b45309;
+      --warning-light: #fef3c7;
+      --danger: #b91c1c;
+      --danger-light: #fee2e2;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 12px;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    [data-theme="dark"] {
+      --primary: #3b82f6;
+      --primary-hover: #60a5fa;
+      --primary-light: #1e293b;
+      --primary-dark: #0f172a;
+      --accent: #60a5fa;
+      --accent-subtle: #1e293b;
+      --bg: #0b0f19;
+      --surface: #131b2e;
+      --border: #23314d;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+      --shadow-lg: 0 10px 20px -3px rgb(0 0 0 / 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.65;
+      font-size: 15px;
+      transition: background-color 0.25s, color 0.25s;
+    }
+
+    /* Top Utility Header */
+    .header-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: white;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      padding: 0.5rem 0.85rem 0.5rem 2.2rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      width: 220px;
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      width: 280px;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.75rem;
+      width: 14px;
+      height: 14px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--bg);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      color: white;
+    }
+
+    /* Layout */
+    .layout-wrapper {
+      max-width: 1300px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      position: sticky;
+      top: 5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      max-height: calc(100vh - 6.5rem);
+      overflow-y: auto;
+    }
+
+    .nav-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .nav-header {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.75px;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.65rem;
+      border-radius: 6px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--accent-subtle);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .nav-badge {
+      font-size: 0.7rem;
+      background: var(--border);
+      padding: 0.1rem 0.4rem;
+      border-radius: 10px;
+      margin-left: auto;
+    }
+
+    /* Main Content Area */
+    .main-content {
+      min-width: 0;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%);
+      color: white;
+      border-radius: var(--radius);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.85rem;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Modules Section Cards */
+    .module-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .module-header {
+      padding: 1.25rem 1.75rem;
+      background: linear-gradient(to right, var(--surface), var(--bg));
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .module-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .module-number {
+      background: var(--primary-light);
+      color: var(--primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .module-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .module-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .module-body {
+      padding: 1.75rem;
+    }
+
+    /* Operation Blocks */
+    .op-block {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      background: var(--surface);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .op-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .op-header {
+      padding: 0.9rem 1.25rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .op-header:hover {
+      background: var(--accent-subtle);
+    }
+
+    .op-title-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .op-badge {
+      background: var(--primary);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .op-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .op-content {
+      padding: 1.25rem 1.5rem;
+    }
+
+    /* Steps and Content */
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .step-body {
+      flex: 1;
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-text {
+      color: var(--text-main);
+      font-size: 0.9rem;
+    }
+
+    .step-text ul {
+      margin-left: 1.25rem;
+      margin-top: 0.35rem;
+    }
+
+    .step-text li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Callout Alert Boxes */
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-subtle);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.25rem 0;
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+    }
+
+    .callout.warning {
+      border-left-color: var(--warning);
+      background: var(--warning-light);
+      color: #78350f;
+    }
+
+    [data-theme="dark"] .callout.warning {
+      background: #451a03;
+      color: #fde68a;
+    }
+
+    .callout.success {
+      border-left-color: var(--success);
+      background: var(--success-light);
+      color: #14532d;
+    }
+
+    [data-theme="dark"] .callout.success {
+      background: #052e16;
+      color: #bbf7d0;
+    }
+
+    .callout.danger {
+      border-left-color: var(--danger);
+      background: var(--danger-light);
+      color: #7f1d1d;
+    }
+
+    [data-theme="dark"] .callout.danger {
+      background: #450a0a;
+      color: #fecaca;
+    }
+
+    .callout-icon {
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .callout-body {
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* Diagram / Visual mockup box */
+    .mockup-box {
+      background: var(--primary-dark);
+      color: #f8fafc;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      overflow-x: auto;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .mockup-title {
+      color: #94a3b8;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 0.35rem;
+    }
+
+    /* Interactive 3x3 Table Alignment Grid */
+    .grid-alignment {
+      display: inline-grid;
+      grid-template-columns: repeat(3, 40px);
+      grid-template-rows: repeat(3, 40px);
+      gap: 4px;
+      background: var(--border);
+      padding: 4px;
+      border-radius: 8px;
+      margin: 0.75rem 0;
+    }
+
+    .grid-cell {
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .grid-cell:hover, .grid-cell.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Data Tables */
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .data-table th {
+      background: var(--primary);
+      color: white;
+      padding: 0.65rem 1rem;
+      font-weight: 600;
+      letter-spacing: 0.25px;
+    }
+
+    .data-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table tbody tr:nth-child(even) {
+      background: var(--bg);
+    }
+
+    .data-table tbody tr:hover {
+      background: var(--accent-subtle);
+    }
+
+    .data-table tfoot td {
+      font-weight: 700;
+      background: var(--bg);
+      border-top: 2px solid var(--primary);
+    }
+
+    .text-right { text-align: right; }
+    .text-center { text-align: center; }
+
+    /* Key Badge / Shortcuts */
+    kbd {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-bottom: 2px solid #94a3b8;
+      border-radius: 4px;
+      padding: 0.15rem 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-main);
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    }
+
+    /* Interactive Checklist */
+    .checklist-card {
+      background: var(--surface);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .checklist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .progress-bar-wrap {
+      width: 100%;
+      height: 10px;
+      background: var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, #2563eb, #10b981);
+      transition: width 0.3s ease;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .check-item:last-child {
+      border-bottom: none;
+    }
+
+    .check-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      cursor: pointer;
+      accent-color: var(--accent);
+    }
+
+    .check-label {
+      flex: 1;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      user-select: none;
+    }
+
+    .check-hint {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    /* Comparison Cards (TP7 Resuelto vs TP a entregar) */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .compare-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      background: var(--surface);
+    }
+
+    .compare-card.example {
+      border-top: 4px solid #64748b;
+    }
+
+    .compare-card.target {
+      border-top: 4px solid var(--success);
+      background: linear-gradient(to bottom, var(--surface), var(--success-light));
+    }
+
+    [data-theme="dark"] .compare-card.target {
+      background: linear-gradient(to bottom, var(--surface), rgba(5, 46, 22, 0.25));
+    }
+
+    .compare-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* GitHub Guide Section */
+    .github-box {
+      background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+      color: #e6edf3;
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-top: 2rem;
+      border: 1px solid #30363d;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .github-box h3 {
+      color: #58a6ff;
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .git-code {
+      background: #010409;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: #7ee787;
+      margin: 0.75rem 0;
+      overflow-x: auto;
+    }
+
+    /* Floating Navigation Controls */
+    .back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 40;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Print Styles */
+    @media print {
+      .header-bar, .sidebar, .header-actions, .back-to-top, .github-box, .checklist-card {
+        display: none !important;
+      }
+      .layout-wrapper {
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background: white;
+        color: black;
+      }
+      .module-card, .op-block {
+        page-break-inside: avoid;
+        border: 1px solid #ccc;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .layout-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        display: none;
+      }
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+      .search-input {
+        width: 150px;
+      }
+      .search-input:focus {
+        width: 190px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Sticky Bar -->
+  <header class="header-bar">
+    <div class="header-container">
+      <a href="#inicio" class="brand">
+        <div class="brand-logo">UTN FRT</div>
+        <div>
+          <div class="brand-title">Informática · Logística</div>
+          <div class="brand-subtitle">Unidad 4 — Clase 8 & TP 7: Word II</div>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Buscar en la teoría...">
+        </div>
+
+        <button id="themeToggle" class="btn" title="Cambiar modo claro / oscuro">
+          <span id="themeIcon">🌙</span>
+        </button>
+
+        <a href="#tp7" class="btn btn-primary">
+          <span>Ver TP N.º 7</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout Wrapper -->
+  <div class="layout-wrapper" id="inicio">
+
+    <!-- Sticky Sidebar -->
+    <aside class="sidebar">
+      <div class="nav-group">
+        <div class="nav-header">Introducción</div>
+        <ul class="nav-links">
+          <li><a href="#inicio" class="nav-link active"><span>📌</span> Resumen General</a></li>
+          <li><a href="#reglas-oro" class="nav-link"><span>⭐</span> Reglas de Oro</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-header">Módulos Teóricos</div>
+        <ul class="nav-links">
+          <li>
+            <a href="#modulo-1" class="nav-link">
+              <span>1️⃣</span> Tablas
+              <span class="nav-badge">Op. 1-4</span>
+            </a>
+          </li>
+          <li>
+            <a href="#modulo-2" class="nav-link">
+              <span>2️⃣</span> Imágenes
+              <span class="nav-badge">Op. 5-6</span>
+            </a>
+          </li>
+          <li>
+            <a href="#modulo-3" class="nav-link">
+              <span>3️⃣</span> Estilos e Índice
+              <span class="nav-badge">Op. 7-9</span>
+            </a>
+          </li>
+          <li>
+            <a href="#modulo-4" class="nav-link">
+              <span>4️⃣</span> Correspondencia
+              <span class="nav-badge">Op. 10-12</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-header">Evaluación Práctica</div>
+        <ul class="nav-links">
+          <li><a href="#tp7" class="nav-link"><span>📋</span> Requisitos TP N.º 7</a></li>
+          <li><a href="#ejemplo-resuelto" class="nav-link"><span>🔍</span> Ejemplo vs Tu Entrega</a></li>
+          <li><a href="#checklist" class="nav-link"><span>✅</span> Checklist de Entrega</a></li>
+          <li><a href="#github-deploy" class="nav-link"><span>🚀</span> Subir a GitHub</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Hero Banner -->
+      <section class="hero-banner">
+        <div class="hero-tag">Universidad Tecnológica Nacional · FRT</div>
+        <h1 class="hero-title">Word II: Tablas, Imágenes, Estilos y Correspondencia</h1>
+        <p class="hero-desc">
+          Guía técnica completa, instructivo de 12 operaciones paso a paso y resolución del Trabajo Práctico N.º 7 para la Tecnicatura Superior en Logística (1.º Año).
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-item"><span>📖</span> <strong>12 Operaciones</strong> estructuradas</div>
+          <div class="hero-meta-item"><span>📦</span> <strong>Enfoque Logístico:</strong> Stock, Remitos, Informes y Despachos</div>
+          <div class="hero-meta-item"><span>⚙️</span> <strong>Herramientas:</strong> Word / Writer / Docs</div>
+        </div>
+      </section>
+
+      <!-- Key Concept Callout -->
+      <div class="callout warning" id="reglas-oro">
+        <div class="callout-icon">⚠️</div>
+        <div>
+          <div class="callout-title">Configuración obligatoria previa (De la clase anterior)</div>
+          <div class="callout-body">
+            Antes de trabajar, debés tener activado <strong>Mostrar todo</strong> (<kbd>¶</kbd> en <em>Inicio › Párrafo</em>) y la <strong>Regla</strong> (<em>Vista › Regla</em>). En logística y documentación profesional <strong>NO se usan Enter repetidos para separar párrafos</strong>, ni tabulaciones para sangría, ni espacios para alinear datos.
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Summary Table -->
+      <div class="data-table-wrap" style="margin-bottom: 2rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Módulo</th>
+              <th>Operaciones</th>
+              <th>Aplicación directa en Logística y Depósito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1 · Tablas</strong></td>
+              <td>1 a 4</td>
+              <td>Planillas de stock, remitos, insumos y listados con totales calculados automáticamente.</td>
+            </tr>
+            <tr>
+              <td><strong>2 · Imágenes</strong></td>
+              <td>5 y 6</td>
+              <td>Logos, diagramas de flujo de carga y fotos de carros/bultos sin romper la maquetación.</td>
+            </tr>
+            <tr>
+              <td><strong>3 · Estilos</strong></td>
+              <td>7 a 9</td>
+              <td>Informes técnicos largos con índice (tabla de contenido) que se genera y actualiza solo.</td>
+            </tr>
+            <tr>
+              <td><strong>4 · Correspondencia</strong></td>
+              <td>10 a 12</td>
+              <td>Generación masiva de etiquetas de envío o cartas personalizadas a clientes en segundos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ==================== MÓDULO 1 ==================== -->
+      <section class="module-card" id="modulo-1">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <div class="module-number">1</div>
+            <div>
+              <h2 class="module-title">Módulo 1: Tablas</h2>
+              <div class="module-sub">Operaciones 1 a 4 · Estructura, formato, fórmulas y repetición de encabezados</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-body">
+          <!-- Op 1 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 01</span>
+                <h3 class="op-name">Insertar una tabla y desplazarse</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <p style="margin-bottom: 1rem;">Una tabla organiza información en filas y columnas. En depósito es la herramienta central para inventarios y remitos.</p>
+              
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Abrir la galería de tablas</div>
+                  <div class="step-text">Posicionar el cursor donde irá la tabla. Ir a <strong>Insertar › Tabla</strong> y arrastrar el mouse sobre la cuadrícula (hasta 10 columnas por 8 filas). Para dimensiones mayores, hacer clic en <em>Insertar tabla…</em> e ingresar valores numéricos exactos.</div>
+                </div>
+              </div>
+
+              <div class="callout success">
+                <div class="callout-icon">💡</div>
+                <div>
+                  <div class="callout-title">Atajos de teclado indispensables para tablas</div>
+                  <div class="callout-body">
+                    <ul>
+                      <li><kbd>Tab</kbd>: Pasa a la siguiente celda (no crea tabulación).</li>
+                      <li><kbd>Shift + Tab</kbd>: Vuelve a la celda anterior.</li>
+                      <li><kbd>Tab</kbd> en la última celda: <strong>Agrega automáticamente una nueva fila</strong> al final. Es el método más veloz de carga de datos en logística.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Op 2 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 02</span>
+                <h3 class="op-name">Dar formato profesional a la tabla</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <p style="margin-bottom: 1rem;">Al ingresar en una tabla aparecen dos pestañas contextuales: <strong>Diseño de tabla</strong> y <strong>Presentación</strong> (o Disposición).</p>
+              
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Aplicar estilo y opciones de visualización</div>
+                  <div class="step-text">
+                    Ir a <em>Diseño de tabla › Estilos de tabla</em> y seleccionar un diseño sobrio. Luego, en <strong>Opciones de estilo de tabla</strong> (a la izquierda), tildar:
+                    <ul>
+                      <li><strong>Fila de encabezado</strong>: Destaca visualmente los títulos de columna.</li>
+                      <li><strong>Filas con bandas</strong>: Alterna colores de fondo para facilitar la lectura de renglones anchos en auditorías y almacén.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="callout">
+                <div class="callout-icon">📋</div>
+                <div>
+                  <div class="callout-title">Criterio Laboral</div>
+                  <div class="callout-body">Evitar estilos multicolor saturados. En fotocopias o impresiones blanco y negro se empastan y anulan la legibilidad de códigos y cantidades.</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Op 3 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 03</span>
+                <h3 class="op-name">Combinar celdas, alineación 3x3 y repetir encabezados</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <p style="margin-bottom: 1rem;">Las operaciones estructurales se gestionan desde la pestaña <strong>Presentación</strong>.</p>
+              
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Filas, columnas y combinación</div>
+                  <div class="step-text">
+                    En <em>Presentación › Filas y columnas</em> podés insertar arriba, abajo, izquierda o derecha. Para fusionar, seleccioná dos o más celdas y hacé clic en <strong>Combinar celdas</strong> (útil para títulos generales). La tecla <kbd>Supr</kbd> borra el texto, mientras que <em>Eliminar filas</em> borra la estructura.
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <div class="step-title">Alineación profesional en cuadrícula de 9 botones</div>
+                  <div class="step-text">
+                    Permite combinar la posición horizontal (izquierda, centro, derecha) y vertical (arriba, medio, abajo).
+                    <div style="margin-top: 0.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+                      <div class="grid-alignment" title="Matriz de alineación de Word">
+                        <div class="grid-cell" title="Arriba Izquierda">↖</div>
+                        <div class="grid-cell" title="Arriba Centro">↑</div>
+                        <div class="grid-cell" title="Arriba Derecha">↗</div>
+                        <div class="grid-cell active" title="Medio Izquierda (Textos)">←</div>
+                        <div class="grid-cell active" title="Centro Medio (Títulos)">•</div>
+                        <div class="grid-cell active" title="Medio Derecha (Números)">→</div>
+                        <div class="grid-cell" title="Abajo Izquierda">↙</div>
+                        <div class="grid-cell" title="Abajo Centro">↓</div>
+                        <div class="grid-cell" title="Abajo Derecha">↘</div>
+                      </div>
+                      <div style="font-size: 0.85rem;">
+                        <strong>Convención estándar de logística:</strong>
+                        <ul style="margin-left: 1.25rem;">
+                          <li>Textos y descripciones: <strong>Alineados a la izquierda</strong>.</li>
+                          <li>Cantidades, precios e importes: <strong>Alineados a la derecha</strong>.</li>
+                          <li>Encabezados y códigos breves: <strong>Centrados</strong>.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="callout warning">
+                <div class="callout-icon">⭐</div>
+                <div>
+                  <div class="callout-title">Repetir filas de título — El detalle de excelencia</div>
+                  <div class="callout-body">
+                    Cuando una tabla de inventario sobrepasa una carilla, en las páginas siguientes se pierden los nombres de columna.
+                    <br><strong>Solución:</strong> Hacer clic en la primera fila de la tabla › <em>Presentación › Repetir filas de título</em>. El encabezado se replicará arriba de cada página de forma 100% automática.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Op 4 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 04</span>
+                <h3 class="op-name">Ordenar datos y calcular totales con fórmulas</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Ordenar alfabéticamente o numéricamente</div>
+                  <div class="step-text">Hacer clic en la tabla › <em>Presentación › Datos › Ordenar</em>. Elegir la columna, el tipo (Texto, Número, Fecha) y verificar tildar <strong>"Con encabezado"</strong> para no mezclar los títulos con los datos.</div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <div class="step-title">Sumar con fórmula =SUM(ABOVE)</div>
+                  <div class="step-text">
+                    Agregar la fila final para el total. Posicionar el cursor en la celda del resultado › <em>Presentación › Datos › Fórmula</em>.
+                    <br>Word insertará: <code>=SUM(ABOVE)</code> (sumar valores superiores). En formato de número seleccionar <code>#.##0,00</code> para mostrar dos decimales monetarios.
+                  </div>
+                </div>
+              </div>
+
+              <div class="mockup-box">
+                <div class="mockup-title">
+                  <span>Ejemplo de Tabla de Insumos con Total Calculado</span>
+                  <span>Word Formula: =SUM(ABOVE)</span>
+                </div>
+┌───────────────────────────┬────────┬──────────┬───────────┐
+│ Insumo                    │ Unidad │ Cantidad │  Subtotal │
+├───────────────────────────┼────────┼──────────┼───────────┤
+│ Cajas de cartón n.º 4     │   u    │      250 │  18.750,00│
+│ Film stretch 500 mm       │  rollo │       40 │  32.400,00│
+│ Cinta de embalar          │  rollo │       60 │   9.180,00│
+├───────────────────────────┼────────┼──────────┼───────────┤
+│ TOTAL                     │        │          │  60.330,00│ ◀ =SUM(ABOVE)
+└───────────────────────────┴────────┴──────────┴───────────┘
+              </div>
+
+              <div class="callout danger">
+                <div class="callout-icon">🚨</div>
+                <div>
+                  <div class="callout-title">Las fórmulas en Word NO se recalculan solas</div>
+                  <div class="callout-body">
+                    A diferencia de Excel, si modificás un subtotal, el total general no cambia inmediatamente.
+                    <br><strong>Cómo actualizar:</strong> Hacer clic derecho sobre el total y elegir <em>Actualizar campos</em>, o seleccionarlo y presionar <kbd>F9</kbd>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================== MÓDULO 2 ==================== -->
+      <section class="module-card" id="modulo-2">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <div class="module-number">2</div>
+            <div>
+              <h2 class="module-title">Módulo 2: Imágenes</h2>
+              <div class="module-sub">Operaciones 5 y 6 · Ajustes de texto, recorte sin pérdida falsa, compresión y texto alternativo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-body">
+          <!-- Op 5 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 05</span>
+                <h3 class="op-name">Insertar imagen y dominar el ajuste de texto</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <p style="margin-bottom: 1rem;">
+                La razón principal por la que las imágenes «saltan» o desacomodan el texto es el tipo de ajuste seleccionado.
+              </p>
+
+              <div class="data-table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Tipo de Ajuste</th>
+                      <th>Comportamiento en el documento</th>
+                      <th>Caso de uso en Logística</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>En línea con el texto</strong></td>
+                      <td>Se comporta como una letra gigante. Si agregás texto arriba, la imagen baja.</td>
+                      <td>Predeterminado. Útil solo para iconos chicos en un renglón.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Cuadrado</strong> ⭐</td>
+                      <td>El texto rodea la imagen formando un rectángulo perfecto.</td>
+                      <td><strong>El obligatorio para el TP7:</strong> fotos de equipos, carros o bultos dentro de un informe.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Estrecho</strong></td>
+                      <td>El texto sigue el contorno real de la silueta.</td>
+                      <td>Para logos o renders con fondo transparente (PNG).</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Arriba y abajo</strong></td>
+                      <td>La imagen bloquea el flujo lateral; el texto continúa recién abajo.</td>
+                      <td>Diagramas de flujo de almacén y organigramas anchos.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Detrás del texto</strong></td>
+                      <td>Queda de fondo y el texto se escribe por encima.</td>
+                      <td>Marcas de agua ("CONFIDENCIAL", "COPIA NO CONTROLADA").</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="callout warning">
+                <div class="callout-icon">💡</div>
+                <div>
+                  <div class="callout-title">¿Por qué la imagen parece "moverse sola"?</div>
+                  <div class="callout-body">
+                    En modo <em>En línea</em>, la imagen se desplaza con el flujo de párrafos. Si querés que permanezca en una coordenada física fija, seleccioná <strong>Cuadrado</strong> y tildá abajo <strong>"Fijar posición en la página"</strong>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Op 6 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 06</span>
+                <h3 class="op-name">Recortar, Comprimir y Texto Alternativo</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Recortar lo innecesario</div>
+                  <div class="step-text">
+                    Clic en la imagen › <em>Formato de imagen › Recortar</em>. Arrastrar las manijas negras.
+                    <br><strong>¡Atención!</strong> Recortar en Word <em>oculta</em> la porción pero no la elimina del archivo: el documento sigue pesando igual.
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <div class="step-title">Comprimir para reducir tamaño de archivo (Exigencia TP7: &lt; 5 MB)</div>
+                  <div class="step-text">
+                    Ir a <em>Formato de imagen › Comprimir imágenes</em>.
+                    <ul>
+                      <li>Destildar <em>"Aplicar solo a esta imagen"</em> (así optimiza todo el documento).</li>
+                      <li>Tildar <strong>"Eliminar las áreas recortadas de las imágenes"</strong>.</li>
+                      <li>Resolución: Elegir <strong>Impresión (220 ppp)</strong> o <strong>Web (150 ppp)</strong>.</li>
+                    </ul>
+                    Una foto sacada con celular pesa 4 a 8 MB. Seis fotos sin comprimir generan un archivo de 45 MB imposible de mandar por correo; comprimido se reduce a 1,8 MB sin perder nitidez visual.
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-body">
+                  <div class="step-title">Texto Alternativo (Accesibilidad técnica)</div>
+                  <div class="step-text">
+                    Clic derecho en la imagen › <em>Ver texto alternativo</em>. Escribir una descripción concreta.
+                    <br><em>Ejemplo logístico:</em> «Carro de picking cargado con cajas rotuladas por orden de compra en pasillo central del depósito».
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================== MÓDULO 3 ==================== -->
+      <section class="module-card" id="modulo-3">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <div class="module-number">3</div>
+            <div>
+              <h2 class="module-title">Módulo 3: Estilos, Índice y Temas</h2>
+              <div class="module-sub">Operaciones 7 a 9 · Jerarquía tipográfica, tabla de contenidos automática y plantillas institucionales</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-body">
+          <!-- Op 7 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 07</span>
+                <h3 class="op-name">Aplicar y Modificar Estilos</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <p style="margin-bottom: 1rem;">
+                Un estilo reúne fuente, tamaño, color y espaciado bajo un nombre. Permite gobernar documentos extensos en un solo paso.
+              </p>
+
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Aplicar niveles de título</div>
+                  <div class="step-text">
+                    Colocar el cursor en la línea del título (no hace falta seleccionar):
+                    <ul>
+                      <li><strong>Título 1</strong>: Secciones principales (ej. <em>1. Objeto y alcance</em>, <em>2. Desarrollo</em>).</li>
+                      <li><strong>Título 2</strong>: Subsecciones (ej. <em>1.1. Áreas involucradas</em>).</li>
+                      <li><strong>Título 3</strong>: Apartados de tercer nivel.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <div class="step-title">Modificar globalmente</div>
+                  <div class="step-text">
+                    Clic derecho sobre <em>Título 1</em> en la galería › <strong>Modificar…</strong>. Al cambiar el color o fuente, <strong>todos los títulos del documento se actualizan instantáneamente</strong>. En un informe de 40 páginas, cambiar títulos a mano toma media hora; con estilos, 3 segundos.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Op 8 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 08</span>
+                <h3 class="op-name">Generar el Índice Automático (Tabla de Contenido)</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <div class="callout warning">
+                <div class="callout-icon">📌</div>
+                <div>
+                  <div class="callout-title">Condición excluyente</div>
+                  <div class="callout-body">
+                    Para que el índice automático funcione, los títulos deben tener asignado <strong>Título 1</strong> o <strong>Título 2</strong>. Si se les dio negrita a mano, Word avisará: <em>"No se encontraron entradas de tabla de contenido"</em>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Insertar la Tabla Automática</div>
+                  <div class="step-text">Ubicar el cursor en la Página 2 (después de la portada). Ir a <strong>Referencias › Tabla de contenido › Tabla automática 1</strong>. El índice se crea con nombres, sangrías y números de página reales.</div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <div class="step-title">Actualizar antes de entregar</div>
+                  <div class="step-text">
+                    Al insertar imágenes o tablas, los párrafos bajan y las páginas cambian. Para sincronizar:
+                    <br>Hacer clic sobre el índice › <strong>Actualizar tabla</strong> (o presionar <kbd>F9</kbd>) › Seleccionar <strong>"Actualizar toda la tabla"</strong>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="callout success">
+                <div class="callout-icon">🔍</div>
+                <div>
+                  <div class="callout-title">Cómo verifica el docente si es automático o manual</div>
+                  <div class="callout-body">
+                    Al hacer un clic sobre el índice: si se <strong>sombrea todo en color gris continuo</strong>, es un campo automático válido. Si solo parpadea el cursor entre letras, fue escrito a mano con tabulaciones y <strong>será desaprobado</strong>.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Op 9 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 09</span>
+                <h3 class="op-name">Temas y Plantillas (.dotx) en Entornos Corporativos</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Temas (Diseño › Temas)</div>
+                  <div class="step-text">Cambia armónicamente la paleta de colores y las fuentes de todo el documento sin romper la jerarquía de estilos establecida.</div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <div class="step-title">Plantillas de Logística (.dotx)</div>
+                  <div class="step-text">
+                    Un centro de distribución nunca empieza remitos o notas de recepción en blanco. Se utiliza un archivo maestro guardado como <strong>Plantilla de Word (*.dotx)</strong> con membrete, logo oficial y campos fijos. Al abrirse, Word genera un documento nuevo protegiendo el original intacto.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================== MÓDULO 4 ==================== -->
+      <section class="module-card" id="modulo-4">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <div class="module-number">4</div>
+            <div>
+              <h2 class="module-title">Módulo 4: Combinación de Correspondencia</h2>
+              <div class="module-sub">Operaciones 10 a 12 · Cartas, base de datos y generación masiva de etiquetas de envío</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-body">
+          <p style="margin-bottom: 1.25rem;">
+            La combinación de correspondencia une dos componentes: un <strong>documento maestro con texto fijo</strong> y una <strong>lista de datos estructurada</strong>. Permite generar cientos de remitos o etiquetas sin escribir a mano uno por uno.
+          </p>
+
+          <!-- Op 10 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 10</span>
+                <h3 class="op-name">Preparar la Lista de Datos</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <div class="callout danger">
+                <div class="callout-icon">⭐</div>
+                <div>
+                  <div class="callout-title">La regla de oro de los nombres de columna</div>
+                  <div class="callout-body">
+                    Los encabezados de datos deben ir <strong>SIN ESPACIOS, SIN ACENTOS y SIN EÑES</strong>.
+                    <br>Usar <code>Destinatario</code>, <code>Direccion</code>, <code>Localidad</code>, <code>Pedido</code> (NO <em>"Dirección de entrega"</em>). Los espacios o tildes causan fallos de sintaxis en el motor de combinación.
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Crear o Vincular Destinatarios</div>
+                  <div class="step-text">
+                    En <em>Correspondencia › Seleccionar destinatarios</em>:
+                    <ul>
+                      <li><strong>Escribir una nueva lista</strong>: Usar <em>Personalizar columnas…</em> para dejar únicamente los campos necesarios y cargar las filas.</li>
+                      <li><strong>Usar una lista existente</strong>: Seleccionar una planilla de Excel donde los títulos estén exactamente en la fila 1 sin celdas combinadas.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Op 11 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 11</span>
+                <h3 class="op-name">Combinar Cartas y Documentos Individuales</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Insertar campos combinados</div>
+                  <div class="step-text">
+                    Escribir el texto estático de la carta y, en la posición donde va el dato variable, ir a <em>Correspondencia › Insertar campo combinado</em>. Se insertará con corchetes angulares: <code>«Destinatario»</code>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <div class="step-title">Previsualizar y Finalizar</div>
+                  <div class="step-text">
+                    Hacer clic en <strong>Vista previa de resultados</strong> para auditar los datos reales con las flechas de navegación. Para generar el archivo final:
+                    <br><em>Correspondencia › Finalizar y combinar › <strong>Editar documentos individuales › Todos</strong></em>. Se abrirá un documento nuevo con todas las cartas separadas por saltos de sección.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Op 12 -->
+          <article class="op-block">
+            <div class="op-header">
+              <div class="op-title-area">
+                <span class="op-badge">OP. 12</span>
+                <h3 class="op-name">Generar Etiquetas de Envío (Archivo 2 del TP7)</h3>
+              </div>
+            </div>
+            <div class="op-content">
+              <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <div class="step-title">Configurar la hoja de etiquetas</div>
+                  <div class="step-text">
+                    Abrir un documento en blanco › <em>Correspondencia › Iniciar combinación de correspondencia › <strong>Etiquetas</strong></em>. Seleccionar el formato de cuadrícula (ej. 2 columnas × 3 filas para 6 etiquetas por hoja).
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <div class="step-title">Diseñar la PRIMERA etiqueta</div>
+                  <div class="step-text">
+                    Vincular los destinatarios (Op. 10). En la primera celda superior izquierda maquetar los campos combinados:
+                    <div class="mockup-box" style="margin: 0.5rem 0;">
+<strong>«Destinatario»</strong>
+Dirección: «Direccion»
+Localidad: «Localidad»
+N.º de Pedido: «Pedido»
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="callout danger">
+                <div class="callout-icon">🚨</div>
+                <div>
+                  <div class="callout-title">El error más recurrente: olvidar "Actualizar Etiquetas"</div>
+                  <div class="callout-body">
+                    Si combinás de inmediato, solo saldrá la primera etiqueta y el resto de la hoja quedará en blanco.
+                    <br><strong>Paso ineludible:</strong> Hacer clic en <em>Correspondencia › <strong>Actualizar etiquetas</strong></em>. Word replicará automáticamente el diseño y agregará el código <code>«Próximo registro»</code> en cada celda restante.
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-body">
+                  <div class="step-title">Generar el documento combinado final</div>
+                  <div class="step-text">
+                    Hacer clic en <em>Finalizar y combinar › Editar documentos individuales › Todos</em>. Se entregará este documento resultante con las 6 etiquetas rellenas.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================== TRABAJO PRÁCTICO N.º 7 ==================== -->
+      <section class="module-card" id="tp7">
+        <div class="module-header">
+          <div class="module-title-wrap">
+            <div class="module-number">📋</div>
+            <div>
+              <h2 class="module-title">Trabajo Práctico N.º 7: Consigna Oficial</h2>
+              <div class="module-sub">Condiciones de entrega y especificaciones de los dos archivos requeridos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="module-body">
+          <div class="callout success">
+            <div class="callout-icon">📌</div>
+            <div>
+              <div class="callout-title">Modalidad de entrega</div>
+              <div class="callout-body">
+                Trabajo individual. Se entregan <strong>dos archivos</strong> al inicio de la clase. Todo el contenido solicitado se resuelve aplicando las 12 operaciones de esta unidad.
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin: 1.5rem 0 0.75rem;">Archivo 1 — Informe de Recepción de Mercadería</h3>
+          <p style="margin-bottom: 1rem;">Documento de al menos 3 páginas sobre el procedimiento formal de descarga, control físico y registro de mercadería en almacén.</p>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>N.º</th>
+                  <th>Requisito Excluyente</th>
+                  <th>Operación</th>
+                  <th>Criterio de Aprobación</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1</strong></td>
+                  <td>Estilos aplicados en títulos</td>
+                  <td>Op. 07</td>
+                  <td>Todos los títulos con <code>Título 1</code> y <code>Título 2</code> (verificable al modificar el estilo globalmente).</td>
+                </tr>
+                <tr>
+                  <td><strong>2</strong></td>
+                  <td>Índice automático</td>
+                  <td>Op. 08</td>
+                  <td>Ubicado tras la portada; debe sombrearse por completo al hacer clic y tener números actualizados.</td>
+                </tr>
+                <tr>
+                  <td><strong>3</strong></td>
+                  <td>Tabla de insumos con fórmula</td>
+                  <td>Op. 01 a 04</td>
+                  <td>Estilo sobrio, encabezado destacado, filas con bandas y total calculado con <code>=SUM(ABOVE)</code>.</td>
+                </tr>
+                <tr>
+                  <td><strong>4</strong></td>
+                  <td>Repetir filas de título</td>
+                  <td>Op. 03</td>
+                  <td>Activado en la tabla de insumos para que se repita si cruza de página.</td>
+                </tr>
+                <tr>
+                  <td><strong>5</strong></td>
+                  <td>Imagen optimizada</td>
+                  <td>Op. 05 y 06</td>
+                  <td>Ajuste <strong>Cuadrado</strong>, comprimida (archivo final &lt; 5 MB) y con texto alternativo.</td>
+                </tr>
+                <tr>
+                  <td><strong>6</strong></td>
+                  <td>Tema aplicado</td>
+                  <td>Op. 09</td>
+                  <td>Paleta y tipografía coherente institucional aplicada desde <em>Diseño › Temas</em>.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin: 2rem 0 0.75rem;">Archivo 2 — Etiquetas de Envío a Clientes</h3>
+          <p style="margin-bottom: 1rem;">
+            Hoja de etiquetas generada mediante combinación de correspondencia, conteniendo <strong>al menos 6 clientes distintos</strong>.
+            Cada etiqueta debe detallar obligatoriamente: <strong>Destinatario</strong>, <strong>Dirección</strong>, <strong>Localidad</strong> y <strong>N.º de Pedido</strong>. Se entrega el archivo resultante ya combinado.
+          </p>
+
+          <!-- Comparison Section -->
+          <div id="ejemplo-resuelto">
+            <h3 style="margin: 2rem 0 0.75rem;">Diferencia Crítica: Ejemplo Resuelto vs Tu Trabajo</h3>
+            <div class="compare-grid">
+              <div class="compare-card example">
+                <div class="compare-title">
+                  <span>📄</span> Ejemplo Resuelto (Guía de apoyo)
+                </div>
+                <ul style="font-size: 0.88rem; margin-left: 1.25rem;">
+                  <li><strong>Tema del Informe:</strong> Procedimiento de Picking (preparación de pedidos).</li>
+                  <li><strong>Etiquetas:</strong> De remito para transportistas (Transportista, Vehículo, Destino, Remito).</li>
+                  <li><strong>Propósito:</strong> Mostrar la técnica de verificación paso a paso.</li>
+                  <li style="color: var(--danger); margin-top: 0.5rem;"><strong>NO copiar:</strong> El contenido temático debe ser distinto.</li>
+                </ul>
+              </div>
+
+              <div class="compare-card target">
+                <div class="compare-title">
+                  <span>🎯</span> Tu Entrega (Obligatorio TP7)
+                </div>
+                <ul style="font-size: 0.88rem; margin-left: 1.25rem;">
+                  <li><strong>Tema del Informe:</strong> <strong>Recepción de Mercadería</strong> en depósito (descarga, remito de proveedor, control cuali-cuantitativo).</li>
+                  <li><strong>Etiquetas:</strong> <strong>Etiquetas de Envío a Clientes</strong> (Destinatario, Dirección, Localidad, Pedido).</li>
+                  <li><strong>Mínimo:</strong> 3 carillas de informe + 6 etiquetas combinadas.</li>
+                  <li style="color: var(--success); font-weight: 700; margin-top: 0.5rem;">Formato 100% profesional sin espacios ni enters repetidos.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Checklist -->
+          <div class="checklist-card" id="checklist">
+            <div class="checklist-header">
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 700;">Checklist Interactivo de Pre-Entrega</h3>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">Comprobá cada ítem antes de guardar los archivos finales</div>
+              </div>
+              <div id="progressText" style="font-weight: 700; color: var(--accent);">0 / 8 verificados</div>
+            </div>
+
+            <div class="progress-bar-wrap">
+              <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+
+            <div class="check-list">
+              <label class="check-item">
+                <input type="checkbox" onchange="updateProgress()">
+                <div class="check-label">
+                  <strong>1. Mostrar todo ¶ activado y limpio</strong>
+                  <span class="check-hint">No hay ¶ repetidos para hacer espacio, ni flechas → de tabulación al inicio de párrafos, ni espacios sucesivos para centrar.</span>
+                </div>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" onchange="updateProgress()">
+                <div class="check-label">
+                  <strong>2. Índice 100% automático</strong>
+                  <span class="check-hint">Al hacer clic sobre el índice se sombrea entero en gris. No fue redactado a mano.</span>
+                </div>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" onchange="updateProgress()">
+                <div class="check-label">
+                  <strong>3. Índice actualizado al finalizar</strong>
+                  <span class="check-hint">Se presionó F9 o "Actualizar toda la tabla" luego de insertar tablas e imágenes para sincronizar las páginas.</span>
+                </div>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" onchange="updateProgress()">
+                <div class="check-label">
+                  <strong>4. Estilos conectados dinámicamente</strong>
+                  <span class="check-hint">Al cambiar el color en "Modificar Título 1", cambian todos los títulos automáticamente.</span>
+                </div>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" onchange="updateProgress()">
+                <div class="check-label">
+                  <strong>5. Total de tabla calculado con fórmula</strong>
+                  <span class="check-hint">La celda muestra un número resultante de =SUM(ABOVE), formateado con dos decimales (#.##0,00).</span>
+                </div>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" onchange="updateProgress()">
+                <div class="check-label">
+                  <strong>6. Imagen con ajuste Cuadrado y texto alternativo</strong>
+                  <span class="check-hint">El texto rodea la imagen de forma limpia. Se completó la descripción en "Ver texto alternativo".</span>
+                </div>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" onchange="updateProgress()">
+                <div class="check-label">
+                  <strong>7. Peso del archivo optimizado (&lt; 5 MB)</strong>
+                  <span class="check-hint">Se utilizó "Comprimir imágenes" eliminando las áreas recortadas (resolución 220 o 150 ppp).</span>
+                </div>
+              </label>
+
+              <label class="check-item">
+                <input type="checkbox" onchange="updateProgress()">
+                <div class="check-label">
+                  <strong>8. Seis etiquetas con datos diferentes</strong>
+                  <span class="check-hint">Se ejecutó "Actualizar etiquetas" y "Finalizar y combinar › Editar documentos individuales". No hay etiquetas en blanco.</span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== GITHUB DEPLOY GUIDE ==================== -->
+      <section class="github-box" id="github-deploy">
+        <h3>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+          </svg>
+          Cómo Subir este Proyecto a GitHub
+        </h3>
+        <p style="font-size: 0.92rem; color: #8b949e; margin-bottom: 1rem;">
+          Este archivo <strong style="color: #fff;">index.html</strong> ya está completamente estructurado y listo para publicarse en <strong>GitHub Pages</strong> o en un repositorio personal.
+        </p>
+
+        <h4 style="color: #58a6ff; font-size: 0.95rem; margin-top: 1rem;">Opción A: Desde la web de GitHub (Directo y sin instalar nada)</h4>
+        <ol style="font-size: 0.88rem; color: #c9d1d9; margin-left: 1.5rem; line-height: 1.8;">
+          <li>Entrá a <a href="https://github.com" target="_blank" style="color: #58a6ff;">github.com</a> e iniciá sesión.</li>
+          <li>Hacé clic en <strong>New repository</strong> (Nuevo repositorio). Poné de nombre, por ejemplo: <code>informatica-logistica-word</code>.</li>
+          <li>Elegí <em>Public</em> (Público) y hacé clic en <strong>Create repository</strong>.</li>
+          <li>En la pantalla que aparece, hacé clic en <strong>"uploading an existing file"</strong> (subir un archivo existente).</li>
+          <li>Arrastrá este archivo <code>index.html</code> (y los apuntes Word/PDF si querés) y hacé clic en <strong>Commit changes</strong>.</li>
+          <li><em>Para activarlo como página web gratis:</em> Andá a <strong>Settings › Pages</strong>, en <em>Branch</em> elegí <strong>main</strong> (carpeta <code>/ (root)</code>) y hacé clic en <strong>Save</strong>. ¡En un minuto tendrás tu enlace web público!</li>
+        </ol>
+
+        <h4 style="color: #58a6ff; font-size: 0.95rem; margin-top: 1.25rem;">Opción B: Mediante Git por línea de comandos</h4>
+        <div class="git-code">
+# 1. En la carpeta del proyecto, inicializás git:
+git init
+git add index.html README.md
+git commit -m "feat: Guia completa de Word II y TP7 Informatica Logistica UTN FRT"
+
+# 2. Conectás con tu repositorio remoto de GitHub:
+git branch -M main
+git remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+
+# 3. Subís los archivos:
+git push -u origin main
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" title="Volver arriba">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script>
+    // Theme toggle
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        themeIcon.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+
+    if (localStorage.getItem('theme') === 'dark' || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme'))) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.textContent = '☀️';
+    }
+
+    themeToggleBtn.addEventListener('click', toggleTheme);
+
+    // Live search filter
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      const opBlocks = document.querySelectorAll('.op-block');
+      
+      opBlocks.forEach(block => {
+        const text = block.textContent.toLowerCase();
+        if (text.includes(query) || query === '') {
+          block.style.display = 'block';
+        } else {
+          block.style.display = 'none';
+        }
+      });
+    });
+
+    // Interactive Checklist & Progress Bar
+    function updateProgress() {
+      const checkboxes = document.querySelectorAll('.checklist-card input[type="checkbox"]');
+      const checked = document.querySelectorAll('.checklist-card input[type="checkbox"]:checked');
+      const progressPercent = Math.round((checked.length / checkboxes.length) * 100);
+      
+      const bar = document.getElementById('progressBar');
+      const text = document.getElementById('progressText');
+      
+      bar.style.width = progressPercent + '%';
+      text.textContent = `${checked.length} / ${checkboxes.length} verificados (${progressPercent}%)`;
+      
+      if (progressPercent === 100) {
+        text.style.color = 'var(--success)';
+        text.textContent = '🎉 ¡Todo listo para entregar!';
+      } else {
+        text.style.color = 'var(--accent)';
+      }
+    }
+
+    // Scroll back to top
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
